@@ -111,8 +111,8 @@ RaggedExperiment(..., colData = DataFrame(), metadata = list())
 \item{...}{Constructor: GRanges, list of GRanges, or GRangesList OR
 assay: Additional arguments for assay. See details for more information.}
 
-\item{colData}{A \code{\link{DataFrame}} describing samples. Length of
-rowRanges must equal the number of rows in colData}
+\item{colData}{A \code{\link[S4Vectors]{DataFrame}} describing samples.
+Length of rowRanges must equal the number of rows in colData}
 
 \item{metadata}{A \code{list} to include in the metadata. Any metadata
 included in the input objects are lost.}
@@ -362,16 +362,16 @@ columns from RaggedExperiment}
 \value{
 constructor returns a \code{RaggedExperiment} object
 
-'rowRanges' returns a \code{\link{GRanges}} object
+'rowRanges' returns a \code{\link[GenomicRanges]{GRanges}} object
     summarizing ranges corresponding to \code{assay()} rows.
 
 'rowRanges<-' returns a \code{\link{RaggedExperiment}} object
     with replaced ranges
 
-'mcols' returns a \code{\link{DataFrame}} object
+'mcols' returns a \code{\link[S4Vectors]{DataFrame}} object
     of the metadata columns
 
-'assays' returns a \code{\link{SimpleList}}
+'assays' returns a \code{\link[S4Vectors]{SimpleList}}
 
 'overlapsAny' returns a logical vector of length equal
     to the number of rows in the \code{query}; \code{TRUE} when the
@@ -419,7 +419,7 @@ and sample names
 \item \code{dimnames(x = RaggedExperiment) <- value}: set row range names and sample names to NULL
 
 \item \code{length(RaggedExperiment)}: get the length of row vectors in the object,
-similar to \linkS4class{SummarizedExperiment}
+similar to \link[SummarizedExperiment]{SummarizedExperiment}
 
 \item \code{colData(RaggedExperiment)}: get column data
 
@@ -516,12 +516,13 @@ In the following, 'object' represents a \code{RaggedExperiment} object:
 
 \code{as(object, "GRangesList")}:
 
-Creates a \linkS4class{GRangesList} object from a \code{RaggedExperiment}.
+Creates a \link[GenomicRanges]{GRangesList} object from a
+\code{RaggedExperiment}.
 
 \code{as(from, "RaggedExperiment")}:
 
-Creates a \code{RaggedExperiment} object from a \linkS4class{GRangesList},
-or \linkS4class{GRanges} object.
+Creates a \code{RaggedExperiment} object from a
+\link[GenomicRanges]{GRangesList}, or \link[GenomicRanges]{GRanges} object.
 }
 
 \examples{

@@ -104,18 +104,19 @@ setValidity2("RaggedExperiment", .valid.RaggedExperiment)
 #'
 #' \code{as(object, "GRangesList")}:
 #'
-#' Creates a \linkS4class{GRangesList} object from a \code{RaggedExperiment}.
+#' Creates a \link[GenomicRanges]{GRangesList} object from a
+#' \code{RaggedExperiment}.
 #'
 #' \code{as(from, "RaggedExperiment")}:
 #'
-#' Creates a \code{RaggedExperiment} object from a \linkS4class{GRangesList},
-#' or \linkS4class{GRanges} object.
+#' Creates a \code{RaggedExperiment} object from a
+#' \link[GenomicRanges]{GRangesList}, or \link[GenomicRanges]{GRanges} object.
 #'
 #' @param ... Constructor: GRanges, list of GRanges, or GRangesList OR
 #'     assay: Additional arguments for assay. See details for more information.
 #'
-#' @param colData A \code{\link{DataFrame}} describing samples. Length of
-#'     rowRanges must equal the number of rows in colData
+#' @param colData A \code{\link[S4Vectors]{DataFrame}} describing samples.
+#'   Length of rowRanges must equal the number of rows in colData
 #'
 #' @param metadata A \code{list} to include in the metadata. Any metadata
 #'   included in the input objects are lost.
@@ -224,7 +225,7 @@ setReplaceMethod("seqinfo", "RaggedExperiment",
 })
 
 #' @describeIn RaggedExperiment rowRanges accessor
-#' @return 'rowRanges' returns a \code{\link{GRanges}} object
+#' @return 'rowRanges' returns a \code{\link[GenomicRanges]{GRanges}} object
 #'     summarizing ranges corresponding to \code{assay()} rows.
 #' @exportMethod rowRanges
 setMethod("rowRanges", "RaggedExperiment", function(x, ...) {
@@ -246,7 +247,7 @@ setReplaceMethod("rowRanges", c("RaggedExperiment", "GRanges"),
 
 #' @describeIn RaggedExperiment get the metadata columns of the ranges,
 #'     rectangular representation of the 'assays'
-#' @return 'mcols' returns a \code{\link{DataFrame}} object
+#' @return 'mcols' returns a \code{\link[S4Vectors]{DataFrame}} object
 #'     of the metadata columns
 #' @param use.names (logical default FALSE) whether to propagate rownames from
 #' the object to rownames of metadata \code{DataFrame}
@@ -344,7 +345,7 @@ setReplaceMethod("dimnames", c("RaggedExperiment", "ANY"),
 })
 
 #' @describeIn RaggedExperiment get the length of row vectors in the object,
-#'     similar to \linkS4class{SummarizedExperiment}
+#'   similar to \link[SummarizedExperiment]{SummarizedExperiment}
 #' @exportMethod length
 setMethod("length", "RaggedExperiment", function(x) {
     length(.rowidx(x))
@@ -389,7 +390,7 @@ setMethod("assay", c("RaggedExperiment", "ANY"),
 #' @param x A RaggedExperiment object.
 #' @param withDimnames logical (default TRUE) whether to use dimension names
 #' in the resulting object
-#' @return 'assays' returns a \code{\link{SimpleList}}
+#' @return 'assays' returns a \code{\link[S4Vectors]{SimpleList}}
 #' @exportMethod assays
 setMethod("assays", "RaggedExperiment", function(x, withDimnames = TRUE, ...) {
     nms <- names(.mcols(x))
